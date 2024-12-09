@@ -231,14 +231,20 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'Mofiqul/dracula.nvim', -- Dracula color theme
-
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
-
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {}
+    end,
+  },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -619,14 +625,12 @@ require('lazy').setup({
         clangd = {},
         pyright = {},
         rust_analyzer = {},
-        csharp_ls = {},
         cmake = {},
         css_variables = {},
         cssls = {},
         cssmodules_ls = {},
         emmet_ls = {},
         jsonls = {},
-        postgres_lsp = {},
         quick_lint_js = {},
         sqlls = {},
         ts_ls = {},
